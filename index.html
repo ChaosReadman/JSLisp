@@ -49,14 +49,17 @@
 (cout output "再帰ルーチン(フィボナッチ)")
 (func rec(a b n)
   (if (> n 0)
-      (
-        (cout output a)
-        (rec (+ a b) a (- n 1))
-      )
+    (
+      (cout output a)
+      (set b  (+ a b))
+      (set a  (- b a))
+      (set n  (- n 1))
+      (rec a b n)
+    )
   )
 )
 
-(rec 1 1 15)
+(rec 0 1 15)
 
 (cout output "リスト操作")
 (def mylist (list 1 2 3 4))
