@@ -331,5 +331,6 @@ function lispString(obj) {
 function runLisp(src){
     const ast = parseLisp(src);
     const env = {};
+    env['nil'] = [];
     ast.forEach(expr => evaluate(expr, env));
 }
