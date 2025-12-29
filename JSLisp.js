@@ -229,6 +229,13 @@ function evaluate(ast, env) {
                 return list.length;
             }
             throw new Error('length expects a list');
+        } else if (op === 'reverse') {
+            const [lst] = args;
+            const list = evaluate(lst, env);
+            if (Array.isArray(list)) {
+                return list.slice().reverse();
+            }
+            throw new Error('reverse expects a list');
         } else if (op === 'append') {
             const lists = args.map(arg => evaluate(arg, env));
             return lists.flat();
